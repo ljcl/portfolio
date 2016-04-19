@@ -1,0 +1,248 @@
+@mixin btn ($border-width: $button-border-width, $border-colour: $colour-primary) {
+  display: inline-block;
+  padding: $button-padding-v $button-padding-h;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: normal;
+  text-decoration: none;
+  border-style: solid;
+  border-width: $button-border-width;
+  border-radius: 0;
+  transition: background .15s $transition-timing, border-color .25s $transition-timing, color .15s $transition-timing, box-shadow .15s $transition-timing, transform .25s $transition-timing;
+  &:hover:not(:disabled) {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  &:active:not(:disabled),
+  &:focus:not(:disabled) {
+    cursor: pointer;
+    outline: none;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+  }
+}
+
+
+@mixin btn-colour (
+  $bg-colour: $colour-primary,
+  $grayscale: false,
+  $bg-colour-hover: null,
+  $text-colour: null,
+  $border-colour: null,
+  $style: flat
+) {
+
+  // TODO: Remove base-color mixin;
+  $base-colour: $bg-colour;
+
+  // Color not specified, modify it based on conditions
+  // Assuming the color is not hugely bright at this point.
+  @if $text-colour == null {
+    $colour: $bg-colour;
+    @if lightness($base-colour) < 80% and lightness($base-colour) > 25% {
+      // It's a dark color, use $colour-white!
+      $colour: $colour-white;
+    } @elseif lightness($base-colour) > 80% {
+      // Use a black!
+      $colour: #000;
+    }
+  } @else {
+    $colour: $text-colour;
+  }
+  $text-colour: $colour;
+
+  color: $colour;
+  border-color: $base-colour;
+  background: $base-colour;
+  text-align: center;
+
+  // --------------------------------------------------------------------------
+  // SOFT STYLE >:3
+  @if $style == soft {
+    border-radius: $border-radius-button;
+    border-width: 0px;
+    border-color: transparent;
+    background: $base-colour;
+    background: $base-colour, linear-gradient(90deg, $base-colour, darken($base-colour, 10%));
+    // box-shadow: inset 0 7px 9px -7px mix($text-colour, $base-colour, 40%);
+  }
+
+  @if $style == outline {
+    border-radius: $border-radius-button;
+    border-width: 2px;
+    background: $transparent;
+    // box-shadow: 0 7px 9px -7px mix($text-colour, $base-colour, 40%);
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: bold;
+    @if saturation($colour) > 80% {
+      color: scale-color($colour, $lightness: -50%)
+    }
+  }
+
+  @if $style == bold {
+    border-radius: $border-radius-button;
+    border-width: 2px;
+    background: $base-colour;
+    // box-shadow: 0 7px 9px -7px mix($text-colour, $base-colour, 40%);
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: bold;
+    &, &:link {
+      color: white;
+    }
+    @if lightness($base-colour) == 100% {
+      &, &:link {
+        color: $colour-black;
+      }
+    }
+  }
+
+
+  &:hover:not(:disabled) {
+    // Define the HOVER base color
+    @if $bg-colour-hover {
+      $base-colour-hover: $bg-colour-hover;
+    } @else {
+      $base-colour-hover:    adjust-color($base-colour, $saturation: 4%, $lightness: 8%);
+    }
+    $border-colour-hover: $base-colour-hover;
+
+    // Modify it based on conditions
+    @if $grayscale == true {
+      $base-colour-hover: grayscale($base-colour-hover);
+    }
+    @if lightness($base-colour) < 80% and lightness($base-colour) > 25% {
+      $base-colour-hover: lighten($base-colour-hover, 4%);
+      $border-colour-hover: lighten($border-colour-hover, 4%);
+    } @elseif lightness($base-colour) > 80% {
+      $base-colour-hover: lighten($base-colour-hover, 40%);
+      $border-colour-hover: lighten($border-colour-hover, 40%);
+    }
+    @if lightness($base-colour) == 0% {
+
+    } @elseif lightness($base-colour) == 100% {
+      $base-colour-hover: rgba(255,255,255,0.9);
+      $border-colour-hover: $colour-white;
+    }
+
+    background: $base-colour-hover;
+    border-color: $base-colour-hover;
+
+    @if $style == soft {
+      @if lightness($colour) < 60% {
+        color: mix($colour, $colour-white, 10%);
+        // box-shadow: inset 0 7px 9px -7px lighten($colour, 0%);
+      } @else {
+        color: mix($colour, $colour-black, 40%);
+        // box-shadow: inset 0 7px 9px -7px darken($text-colour, 10%);
+      }
+      background: darken($base-colour, 10%);
+      background: $base-colour, linear-gradient(90deg, $base-colour, darken($base-colour, 10%));
+    }
+
+    @if $style == outline {
+      @if lightness($colour) < 25% {
+        background-color: lighten($base-colour-hover, 30%);
+        color: mix($colour, $colour-white, 10%);
+      } @elseif lightness($colour) < 70% {
+        color: mix($colour, $colour-white, 10%);
+        // box-shadow: 0 7px 9px -7px lighten($colour, 0%);
+      } @else {
+        color: mix($colour, $colour-black, 40%);
+        // box-shadow: 0 7px 9px -7px darken($text-colour, 20%);
+      }
+      @if saturation($colour) > 80% {
+        color: scale-color($colour, $lightness: -50%)
+      }
+      @if lightness($base-colour) == 0% or lightness($base-colour) == 100% {
+        background-color: transparent;
+      }
+      @if lightness($base-colour) == 100% {
+        color: $colour-white;
+      }
+      @if lightness($base-colour) == 0% {
+        color: $colour-black;
+      }
+      &:hover:after {
+        transform: translateX(6px);
+      }
+    }
+    @if $style == bold {
+      @if lightness($colour) < 25% {
+        background-color: lighten($base-colour-hover, 30%);
+      } @elseif lightness($colour) < 70% {
+        //box-shadow: 0 7px 9px -7px lighten($colour, 0%);
+      } @else {
+        //box-shadow: 0 7px 9px -7px darken($text-colour, 20%);
+      }
+      color: white;
+      @if lightness($base-colour) == 100% {
+        color: $colour-black;
+      }
+      &:hover:after {
+        transform: translateX(6px);
+      }
+    }
+  }
+
+  &:active:not(:disabled),
+  &:focus:not(:disabled) {
+    // Define the ACTIVE base color
+    $base-colour-active: adjust-color($base-colour, $saturation: -4%, $lightness: -5%);
+    $border-colour-active: $base-colour-active;
+
+    // Modify it based on conditions
+    @if $grayscale == true {
+      $base-colour-active: grayscale($base-colour-active);
+    }
+    @if lightness($base-colour) == 0% {
+      $border-colour-active: lighten($base-colour-active, 4%);
+      $base-colour-active: lighten($border-colour-active, 4%);
+    } @elseif lightness($base-colour) == 100% {
+      $base-colour-hover: rgba(255,255,255,0.9);
+      $base-colour-active: $colour-white;
+    }
+
+    color: $colour;
+    background: $base-colour-active;
+    border-color: $base-colour-active;
+
+    @if $style == soft {
+      @if lightness($colour) < 60% {
+        color: mix($colour, $colour-white, 10%);
+        box-shadow: inset 0 7px 9px -7px lighten($colour, 0%);
+      } @else {
+        color: mix($colour, $colour-black, 40%);
+        box-shadow: inset 0 7px 9px -7px darken($text-colour, 10%);
+      }
+      background: lighten($base-colour, 20%);
+      background: $base-colour, linear-gradient(90deg, $base-colour, lighten($base-colour, 20%));
+    }
+    @if $style == bold or $style == outline {
+      transform: translateY(2px);
+    }
+    @if $style == outline {
+      color: white;
+      @if lightness($base-colour) == 100% {
+        color: $colour-white;
+        background: transparent;
+      }
+      @if lightness($base-colour) == 0% {
+        color: $colour-white;
+      }
+    }
+    @if $style == bold {
+      @if lightness($colour) < 25% {
+        background-color: lighten($base-colour-hover, 30%);
+      }
+      color: white;
+      @if lightness($base-colour) == 100% {
+        color: $colour-black;
+      }
+    }
+  }
+
+}

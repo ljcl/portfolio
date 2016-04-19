@@ -1,0 +1,91 @@
+$breadcrumb-colour-arrow: $colour-black;
+$breadcrumb-colour-background: $colour-white;
+$breadcrumb-color: $colour-black;
+
+.breadcrumbs {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  color: $breadcrumb-color;
+  list-style: none;
+  border-radius: $border-radius-base;
+}
+.breadcrumbs--crumb {
+  float: left;
+  a {
+    position: relative;
+    display: block;
+    float: left;
+    padding: 0 0 0 55px;
+    color: currentColor;
+    text-decoration: none;
+    &:after {
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      z-index: 2;
+      display: block;
+      width: 0;
+      height: 0;
+      margin-top: -50px;
+      content: ' ';
+      border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+      border-bottom: 50px solid transparent;
+      border-left: 30px solid $breadcrumb-colour-arrow;
+    }
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      z-index: 1;
+      display: block;
+      width: 0;
+      height: 0;
+      margin-top: -50px;
+      margin-left: 0;
+      content: ' ';
+      border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+      border-bottom: 50px solid transparent;
+      border-left: 32px solid $breadcrumb-colour-arrow;
+    }
+    &:hover {
+      background-color: lighten($breadcrumb-colour-arrow, 5%);
+      &:after {
+        border-left-color: lighten($breadcrumb-colour-arrow, 5%);
+      }
+    }
+  }
+  @include media($smaller) {
+    float: none;
+    a {
+      display: block;
+      float: none;
+      padding: 10px 2%;
+      text-align: center;
+    }
+  }
+}
+
+.breadcrumb--logo {
+  min-width: 48px;
+  @include media($smaller) {
+    background-position: 50% 50%;
+  }
+  span {
+    @include hide-text();
+  }
+}
+
+
+.breadcrumbs--crumb:first-child a {
+  padding-left: 10px;
+}
+
+@for $i from 1 through 10 {
+  .breadcrumbs--crumb:nth-child(#{$i}) a {
+    background-color: lighten($breadcrumb-colour-background, $i / .15);
+    &:after {
+      border-left-color: lighten($breadcrumb-colour-background, $i / .15);
+    }
+  }
+}

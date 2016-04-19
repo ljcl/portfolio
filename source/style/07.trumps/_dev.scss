@@ -1,0 +1,22 @@
+.debug {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  font-size: 8px;
+  text-transform: uppercase;
+}
+
+.styleguide .row {
+  clear: both;
+}
+
+.styleguide .panel {
+  margin-bottom: $small-spacing;
+}
+
+.styleguide .btn.btn-block {
+  //margin-bottom: 27px;
+  + pre {
+    margin-bottom: 27px;
+  }
+}

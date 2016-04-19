@@ -1,0 +1,35 @@
+@mixin button-arrow($size: 16px, $margin-top: 1px, $colour: default, $right: 0, $width: null, $height: null) {
+  & {
+    min-width: 260px;
+    @if $width {
+      padding-right: $width * 2 + $width;
+    } @else {
+      padding-right: $size * 2 + $size;
+    }
+    position: relative;
+  }
+  &:after {
+    content: '';
+    @if $width {
+      width: $width;
+    } @else {
+      width: $size;
+    }
+    @if $height {
+      height: $height;
+    } @else {
+      height: $size;
+    }
+    position: absolute;
+    transition: $transition-duration transform $transition-timing;
+    transform: translateX(0%);
+    right: $right;
+    background-size: cover;
+    background-position: 50% 50%;
+    margin-top: $margin-top;
+    line-height: normal;
+    @if $colour != none {
+      background-image: url(/assets/img/arrow-black.svg);
+    }
+  }
+}

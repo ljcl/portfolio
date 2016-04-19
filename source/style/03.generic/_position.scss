@@ -1,0 +1,132 @@
+$row-padding: $small-spacing * 1.5;
+
+.margin-top {
+  margin-top: $small-spacing;
+  &.more {
+    margin-top: $small-spacing * 1.5;
+  }
+  &.extra {
+    margin-top: $small-spacing * 3;
+  }
+}
+
+.margin-bottom {
+  margin-bottom: $small-spacing;
+  &.more {
+    margin-bottom: $small-spacing * 1.5;
+  }
+  &.extra {
+    margin-bottom: $small-spacing * 3;
+  }
+}
+
+
+.padding-top {
+  padding-top: $small-spacing;
+  &.more {
+    padding-top: $small-spacing * 1.5;
+  }
+}
+
+.padding-bottom {
+  padding-bottom: $small-spacing;
+  &.more {
+    padding-bottom: $small-spacing * 1.5;
+  }
+}
+
+.padding-right {
+  padding-right: $small-spacing;
+  &.more {
+    padding-right: $small-spacing * 1.5;
+  }
+}
+
+.padding-left {
+  padding-left: $small-spacing;
+  &.more {
+    padding-left: $small-spacing * 1.5;
+  }
+}
+
+
+.relative {
+  position: relative;
+}
+
+.clear {
+  @include clearfix();
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.block {
+  display: block;
+}
+
+.centre-block,
+.center-block {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.row-padding {
+  padding-top: $row-padding;
+  padding-bottom: $row-padding;
+}
+
+.row-padding--half {
+  padding-top: $row-padding * .5;
+  padding-bottom: $row-padding * .5;
+}
+
+.row-padding--double {
+  padding-top: $row-padding * 2;
+  padding-bottom: $row-padding * 2;
+}
+
+.row {
+  @include clearfix();
+  .half {
+    @include span-columns(6 of 12);
+    @include omega(2n);
+    @include media($small) {
+      @include span-columns(8);
+    }
+  }
+  .two-third {
+    @include span-columns(8 of 12);
+    @include omega(3n);
+    @include media($small) {
+      @include span-columns(8);
+    }
+  }
+  .third {
+    @include span-columns(4 of 12);
+    @include omega(3n);
+    @include media($small) {
+      @include span-columns(8);
+    }
+  }
+}
+
+.anchor-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+
+@include media($small-up) {
+  .content--main.two-third,
+  .entry-post.two-third {
+    padding-right: 60px;
+  }
+
+}

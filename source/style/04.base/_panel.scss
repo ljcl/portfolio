@@ -1,0 +1,78 @@
+$panel-colour: $colour-text;
+$panel-background-colour: #FFF;
+$panel-colour-border: #000;
+$panel-border-width: 3px;
+
+$panel-padding: $small-spacing * 2; // 21
+// $panel-margin: $small-spacing * 3; // 31
+$panel-margin: 5vh; // 31
+$panel-padding-h: 2em;
+$panel-padding-v: 2em;
+
+
+.panel {
+  padding: $panel-padding-v $panel-padding-h;
+  background: $panel-background-colour;
+  overflow: auto;
+  width: 100%;
+  // border-color: $panel-colour-border;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    &:first-child {
+      margin-top: 0;
+    }
+    &:only-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.panel-invisible {
+  background: transparent;
+}
+
+.panel-no-wide {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+$panel-positions: (
+  'top': $panel-margin,
+  'bottom': $panel-margin
+);
+
+@each $panel-position, $size in $panel-positions {
+  .panel--#{$panel-position} {
+    margin-#{$panel-position}: $panel-margin;
+  }
+  .panel--nopadding-#{$panel-position} {
+    padding-#{$panel-position}: 0;
+  }
+}
+
+.panel--nopadding {
+  padding: 0;
+}
+
+.panel--nomargin {
+  padding: 0;
+}
+
+.panel--innerpad {
+  padding: $panel-padding-v $panel-padding-h;
+}
+
+.panel--img {
+  // padding-top: 2px;
+}
+
+.panel--shadow {
+  box-shadow: 25px 20px 50px lighten(#A2A2A2, 20%);
+}
+
+.panel-content .title:first-child {
+  margin-top: 0;
+}

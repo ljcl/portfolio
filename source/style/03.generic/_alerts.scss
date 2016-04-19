@@ -1,0 +1,31 @@
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid $transparent;
+  border-radius: 4px;
+  &.success {
+    color: darken($colour-success, 10%);
+    background-color: lighten($colour-success, 40%);
+    border-color: lighten($colour-success, 30%);
+  }
+  &.warning {
+    color: darken($colour-warning, 10%);
+    background-color: lighten($colour-warning, 40%);
+    border-color: lighten($colour-warning, 30%);
+  }
+  &.info {
+    color: darken($colour-info, 10%);
+    background-color: lighten($colour-info, 40%);
+    border-color: lighten($colour-info, 30%);
+  }
+  &.danger {
+    color: darken($colour-danger, 10%);
+    background-color: lighten($colour-danger, 35%);
+    border-color: lighten($colour-danger, 30%);
+  }
+  &.developer {
+    color: darken($colour-danger, 10%);
+    background-color: lighten($colour-danger, 35%);
+    border-color: lighten($colour-danger, 30%);
+  }
+}

@@ -1,0 +1,16 @@
+// We use Bourbon and Bourbon Neat
+// Each section has it's own manifest file. Defining their children.
+// In rare instances, a file might be imported outside of a manifest, that should be documented.
+
+// The SCSS Gulp has a scss linter, you should use that as a guide to following the proper style.
+// `gulp scss-lint`
+
+@import './01.settings/_manifest';
+@import './01.settings/grid';
+
+@import './02.tools/_manifest';
+@import './03.generic/_manifest';
+@import './04.base/_manifest';
+@import './05.objects/_manifest';
+@import './06.components/_manifest';
+@import './07.trumps/_manifest';

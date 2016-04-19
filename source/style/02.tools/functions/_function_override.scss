@@ -1,0 +1,9 @@
+// If you're using bourbon, include this afterwards to disable it's vendor prefixing, and let your build system do the work.
+// https://github.com/postcss/autoprefixer
+@function linear-gradient($value...) {
+  @return unquote('linear-gradient(#{$value})');
+}
+
+@function radial-gradient($value...) {
+  @return unquote('radial-gradient(#{$value})');
+}

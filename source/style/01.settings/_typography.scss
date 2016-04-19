@@ -1,0 +1,48 @@
+$font-size-base: 1.5;
+$font-family-body: 'Open Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+$font-family-body-fallback: 'Helvetica Neue', helvetica, arial, sans-serif;
+$font-family-header: 'Merriweather', $font-family-body;
+$font-family-header-fallback: Georgia, Cambria, "Times New Roman", Times, serif;
+$font-header-weight: 400;
+$font-header-style: italic;
+
+// Define yr fonts with a fallback for slow internet people.
+@mixin font-family($fam: $font-family-header) {
+  font-family: #{$fam}-fallback;
+  .wf-active & {
+    font-family: #{$fam};
+  }
+}
+
+$line-height-base: 1.4;
+$line-height-heading: 1.25;
+
+$alpha: 3.2!default;
+$beta: 3!default;
+$gamma: 2!default;
+$delta: 1.8!default;
+$epsilon: 1.6!default;
+$zeta: 1.6!default;
+$too-big: 11!default;
+$giga: 7!default;
+$mega: 5!default;
+$kilo: 3.4!default;
+$hecto: 2.64!default;
+$deca: 1.6!default;
+$micro: 1!default;
+$milli: 1.2!default;
+
+$alpha: 2.6 * $font-size-base;
+$beta: 2.2 * $font-size-base;
+$gamma: 2 * $font-size-base;
+$delta: 1.8 * $font-size-base;
+$epsilon: 1.6 * $font-size-base;
+$zeta: 1.4 * $font-size-base;
+$too-big: 10 * $font-size-base;
+$giga: 5 * $font-size-base;
+$mega: 4 * $font-size-base;
+$kilo: 3.4 * $font-size-base;
+$hecto: 2.64 * $font-size-base;
+$deca: 1.6 * $font-size-base;
+$micro: .9 * $font-size-base;
+$milli: .8 * $font-size-base;

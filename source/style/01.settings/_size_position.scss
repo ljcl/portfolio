@@ -1,0 +1,35 @@
+$border-radius-base: 4px;
+
+// ----------------------------------------------------------------------------
+// #Size-Form
+$form-padding-v: 10px;
+$form-padding-h: 10px;
+$form-border-width: 2px;
+$form-border-radius: 2px;
+$width-divider: 3px;
+$panel-padding: 20px;
+
+$border-form: $form-border-width solid $colour-form-border;
+
+// ----------------------------------------------------------------------------
+// #Size-Button
+
+$button-border-width: $form-border-width;
+$button-padding-v: 10px;
+$button-padding-h: $button-padding-v * 1.5;
+$border-radius-button: 2px;
+
+// Border
+$border-base: $form-border-width solid $base-border-color;
+
+
+// Generic
+$base-spacing: $line-height-base * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+
+
+
+// Fallback
+$base-border: $border-base;

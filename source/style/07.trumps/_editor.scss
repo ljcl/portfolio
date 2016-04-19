@@ -1,0 +1,62 @@
+// Style classes for use in the CMS.
+$ed-colours: (
+  'primary': $colour-primary,
+  'secondary': $colour-secondary,
+  'tertiary': $colour-tertiary,
+  'quaternary': $colour-quaternary,
+  'default': $colour-default,
+  'success': $colour-success,
+  'info': $colour-info,
+  'warning': $colour-warning,
+  'danger': $colour-danger,
+  'white': $colour-white
+);
+
+@each $ed-colour, $colour in $ed-colours {
+  .ed-#{$ed-colour} {
+    color: $colour;
+  }
+}
+
+.center-block {
+  display: block;
+  text-align: center;
+}
+
+
+$ed-callout-colours: (
+  'black': $colour-black,
+  'primary': $colour-primary,
+  'secondary': $colour-secondary,
+  'tertiary': $colour-tertiary,
+  'quaternary': $colour-quaternary,
+  'success': $colour-success,
+  'info': $colour-info,
+  'warning': $colour-warning,
+  'danger': $colour-danger
+);
+
+$ed-inverse-padding: 14px;
+
+@each $ed-callout-colour, $colour in $ed-callout-colours {
+  .ed-inverse-#{$ed-callout-colour} {
+    background-color: $colour;
+    padding: $ed-inverse-padding;
+    a {
+      color: currentColor;
+    }
+    p:last-of-type {
+      margin-bottom: 0;
+      .btn {
+        margin-bottom: 0;
+      }
+    }
+    @if lightness($colour) >= 40% {
+      color: $colour-white;
+    } @elseif lightness($colour) < 80% and lightness($colour) > 25% {
+      color: $colour-text;
+    } @else {
+      color: text-contrast($colour);
+    }
+  }
+}

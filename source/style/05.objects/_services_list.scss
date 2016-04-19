@@ -1,0 +1,42 @@
+// The services list on the website homepage
+//
+
+$service-item--icon-size: 24px;
+
+.service-items {
+  overflow: auto;
+  width: 100%;
+  margin: 0;
+}
+
+.service-item {
+  margin: 0;
+  @include span-columns(3);
+  @include omega(4n);
+  position: relative;
+  @include media($small) {
+    @include span-columns(4)
+    @include omega-reset(4n)
+    @include omega(2n)
+  }
+  @include media($smaller) {
+    @include span-columns(4)
+  }
+}
+
+.service-item--icon,
+.service-item--content {
+
+}
+
+.service-item--icon {
+  position: absolute;
+  font-size: $service-item--icon-size;
+  width: $service-item--icon-size;
+  height: $service-item--icon-size;
+}
+
+.service-item--content {
+  margin-left: $service-item--icon-size + ($service-item--icon-size / 2);
+  margin-bottom: $service-item--icon-size;
+}

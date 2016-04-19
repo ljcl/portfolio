@@ -1,0 +1,76 @@
+@mixin span-columns($span: $columns of $container-columns, $display: block) {
+  @warn 'Replace me!';
+}
+
+@mixin outer-container() {
+  @warn 'Replace me!';
+}
+
+@mixin shift($meh) {
+  @warn 'Replace me!';
+}
+
+@mixin omega($n: 1) {
+  @warn 'Replace me!';
+}
+
+@mixin omega-reset($nth) {
+  @warn 'Replace me!';
+}
+
+$huge-px: 1280px;
+$full-px: 1000px;
+$small-px: 850px;
+$smaller-px: 528px;
+
+// Em versions of our breakpoints
+$huge-em: em($huge-px);
+$full-em: em($full-px);
+$small-em: em($small-px);
+$smaller-em: em($smaller-px);
+
+// Breakpoints
+$bp-huge: $huge-em;
+$bp-full: $full-em;
+$bp-small: $small-em;
+$bp-smaller: $smaller-em;
+
+// Change the grid settings
+$column: 80px;
+$gutter: 40px;
+$grid-columns: 12;
+$max-width: $full-px;
+$show-grid: false;
+
+// Define your breakpoints
+$full: 'max-width' $bp-full;
+$small: 'max-width' $bp-small;
+$smaller: 'max-width' $bp-smaller;
+$full-up: $bp-full;
+$small-up: $bp-small;
+$smaller-up: $bp-smaller;
+$huge-up: $bp-huge;
+
+@mixin media($query: $feature $value) {
+  @if length($query) == 1 {
+    $feature: 'min-width';
+    $value: $query;
+  } @else {
+    $feature: nth($query, 1);
+    $value: nth($query, 2);
+  }
+  @if $value {
+    @media screen and ($feature: $value) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+.container {
+  lost-center: 980px;
+  .third {
+    lost-column: 1/3;
+  }
+}

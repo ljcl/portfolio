@@ -1,0 +1,62 @@
+// Infield labels tips
+// - Wrap label and input with .infield-grould
+// - Input first (use class .input, .input.select, .input.option, etc)
+// - Label second (use class .label)
+
+$infield-colour-label: $colour-text;
+$infield-colour-border: $colour-form-border;
+$infield-padding: 10px;
+
+.infield {
+  position: relative;
+  border-bottom: 3px solid $infield-colour-border;
+  .input,
+  .textarea,
+  .select {
+    appearance: none;
+  }
+  .label,
+  .input {
+    display: block;
+  }
+  .input,
+  .input:focus {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 2em $infield-padding $infield-padding $infield-padding;
+    outline: none;
+    width: 100%;
+  }
+  .input:focus {
+    + .label {
+      color: lighten($infield-colour-label, 50%);
+    }
+  }
+  .label {
+    cursor: pointer;
+    color: $infield-colour-label;
+    font-size: 70%;
+    letter-spacing: 0.03em;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-transform: uppercase;
+    input:hover + & {
+      color: red;
+    }
+  }
+}
+
+.infield-controls {
+  padding: 2em $infield-padding $infield-padding $infield-padding;
+}
+
+.infield-header {
+  border-bottom-width: 6px;
+  padding-bottom: 6px;
+  padding: 10px;
+  display: block;
+  width: 100%;
+  position: static;
+}

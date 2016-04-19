@@ -1,0 +1,22 @@
+$post-margin: $type-margin;
+
+.post-header {
+  margin-bottom: $post-margin;
+}
+
+.post-header-meta {
+  margin-top: - ($post-margin / 4);
+  font-size: 0.9em;
+  .time, .tag {
+    text-transform: uppercase;
+  }
+}
+
+.post {
+  
+}
+
+.post-body {
+  @include shift(2 of 12);
+  @include span-columns(8);
+}

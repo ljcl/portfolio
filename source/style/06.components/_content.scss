@@ -1,0 +1,46 @@
+.content {
+  figure {
+    display: inline-block;
+    figcaption {
+      font-size: 88%;
+      text-align: center;
+    }
+  }
+}
+
+
+// ----------------------------------------------------------------------------
+// Page Course page_course
+
+#coursesnav {
+  display: flex;
+  flex-flow: row wrap;
+  a {
+    display: block;
+    flex: 1 1 7.69%;
+    background-color: #f4f4f4;
+    text-align: center;
+    text-transform: uppercase;
+    color: $colour-white;
+    border: 1px solid white;
+    padding: 10px 0;
+    font-size: 2rem;
+    font-weight: semibold;
+    &.active {
+      color: $colour-black;
+    }
+    @include media($smaller) {
+      flex: 0 1 14.2%;
+    }
+  }
+}
+
+#courses > div {
+  margin-top: $small-spacing;
+  font-weight: bold;
+
+  > div {
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+}

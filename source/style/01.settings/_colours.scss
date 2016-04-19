@@ -1,0 +1,122 @@
+// ----------------------------------------------------------------------------
+// #Colour-Default
+
+$colour-red: rgb(231, 76, 60) !default;
+$colour-orange: rgb(243, 156, 18) !default;
+$colour-yellow: rgb(241, 196, 15) !default;
+$colour-lime: rgb(74, 180, 113) !default;
+$colour-green-alt: rgb(161, 211, 110) !default;
+$colour-green: #31CD64!default;
+$colour-cyan: rgb(85, 193, 231) !default;
+$colour-blue: rgb(41, 128, 185) !default;
+$colour-indigo: rgb(113, 126, 205) !default;
+$colour-violet: rgb(155, 89, 182) !default;
+$colour-white: #fff;
+$colour-black: #000;
+$colour-grey: #808080;
+$transparent: transparent;
+
+// ----------------------------------------------------------------------------
+// #Brand Colours
+
+$colour-facebook: #39579a;
+$colour-pinterest: #bf0012;
+$colour-instagram: #3d719d;
+$colour-twitter: #50abf1;
+$colour-youtube: #cf1d13;
+$colour-linkedin: #0076b7;
+
+// ----------------------------------------------------------------------------
+// #Colour-Generic
+
+$colour-primary: #e72329!default;
+$colour-secondary: #00609c!default;
+$colour-tertiary: $colour-green!default;
+$colour-quaternary: $colour-indigo!default;
+
+$colour-primary: #CB3733;
+$colour-secondary: #505A6B;
+$colour-tertiary: #383E48;
+$colour-quaternary: #1B1D24;
+
+$colour-primary: rgba(203,55,51,1);
+$colour-secondary: rgba(80,90,107,1);
+$colour-tertiary: rgba(56,62,72,1);
+$colour-quaternary: rgba(27,29,36,1);
+$colour-c2a-primary: #e71f3c;
+$colour-c2a-hover: rgba(106,85,152,1);
+
+
+$colour-background: #f7f8f8;
+// $colour-background: $colour-white;
+$colour-background-secondary: darken($colour-background, 3%);
+$colour-background-two: $colour-background-secondary;
+$colour-background-tertiary: darken($colour-background-secondary, 3%);
+$colour-primary-darker: darken($colour-primary, 15%);
+$colour-secondary-darker: darken($colour-secondary, 15%);
+$colour-tertiary-darker: darken($colour-tertiary, 15%);
+$colour-quaternary-darker: darken($colour-indigo, 15%);
+$colour-primary-lighter: lighten($colour-primary, 15%);
+$colour-secondary-lighter: lighten($colour-secondary, 15%);
+$colour-tertiary-lighter: lighten($colour-tertiary, 15%);
+$colour-quaternary-lighter: lighten($colour-quaternary, 15%);
+
+// ----------------------------------------------------------------------------
+// #Colour-State
+$colour-disabled: greyscale($colour-primary);
+$colour-text: #333;
+$colour-text-dark: darken($colour-text, 10%);
+$colour-link: $colour-secondary;
+$colour-link-hover: darken($colour-link, 5%);
+$colour-action: $colour-cyan;
+$colour-post: $colour-cyan;
+$colour-success: $colour-green;
+$colour-error: $colour-red;
+$colour-danger: $colour-error;
+$colour-info: $colour-blue;
+$colour-warning: $colour-orange;
+$colour-task: $colour-indigo;
+$colour-event: $colour-violet;
+
+// ----------------------------------------------------------------------------
+// #Colour-Alert
+
+$alert-colour-success: $colour-success;
+$alert-colour-warning: $colour-warning;
+$alert-colour-info: $colour-info;
+$alert-colour-danger: $colour-danger;
+
+// #Colour-Array
+// Handy array to loop through
+$primary-colours: (
+  'primary': $colour-primary,
+  'secondary': $colour-secondary,
+  'tertiary': $colour-tertiary,
+  'quaternary': $colour-quaternary,
+  'success': $colour-success,
+  'info': $colour-info,
+  'warning': $colour-warning,
+  'danger': $colour-danger,
+);
+
+// ----------------------------------------------------------------------------
+// #Colour-Button
+$button-base-colour: $colour-primary!default;
+
+// ----------------------------------------------------------------------------
+// #Colour-Form
+$colour-divider: lighten($colour-grey, 30%);
+$colour-border: $colour-background;
+$colour-form: $colour-text;
+$colour-form-border: $colour-border;
+$colour-form-border-hover: $colour-blue;
+$colour-form-border-error: $colour-error;
+$colour-form-border-focus: $colour-blue;
+$colour-form-background: $colour-background;
+
+// Fallbacks
+$base-border-color: $colour-border;
+$form-border-colour: $colour-border; // Fallback
+
+// Other
+$colour-footer: #717272;

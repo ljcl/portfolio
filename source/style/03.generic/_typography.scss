@@ -1,0 +1,287 @@
+html {
+  font-size: 62.5%;
+}
+
+h1, h2, h3, h4, h5, h6, .font-header {
+  @include font-family($font-family-header);
+}
+
+body {
+  font-size: $font-size-base + rem;
+  font-weight: 400;
+  line-height: $line-height-base;
+  color: $colour-text;
+  font-feature-settings: 'kern', 'liga', 'pnum';
+  @include font-family($font-family-body);
+}
+
+.subtle {
+  color: mix($colour-text, $colour-white, 50%);
+}
+
+$type-margin: 4vh;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: $type-margin 0 $type-margin / 2;
+  font-weight: $font-header-weight;
+  font-style: $font-header-style;
+  line-height: $line-height-heading;
+}
+
+.font-header {
+  font-family: $font-family-header-fallback;
+  font-weight: $font-header-weight;
+  font-style: $font-header-style;
+  line-height: $line-height-heading;
+  .wf-active & {
+    font-family: $font-family-header;
+  }
+}
+
+.font-header-margin {
+  margin: $type-margin 0 $type-margin / 2;
+}
+
+p {
+  margin: 0 0 $type-margin / 2;
+}
+
+ul, ol {
+  margin: 0 0 $type-margin / 2;
+  padding: 0;
+  li {
+    margin: 0 $type-margin / 4 $type-margin / 2;
+  }
+}
+
+a {
+  color: $colour-link;
+  text-decoration: none;
+  outline: none;
+  transition: color $transition-duration $transition-timing;
+  .dec {
+    text-decoration: underline;
+  }
+  &:active,
+  &:focus,
+  &:hover {
+    color: shade($colour-link, 25%);
+  }
+}
+
+$flush-directions: ('top', 'right', 'bottom', 'left');
+
+@each $direction in $flush-directions {
+  .flush-#{$direction} {
+    margin-#{$direction}: 0;
+  }
+}
+
+hr {
+  margin: $base-spacing 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: $border-base;
+  border-left: 0;
+}
+
+img,
+picture {
+  max-width: 100%;
+  margin: 0;
+}
+
+.align {
+  &.left, &-left {
+    text-align: left;
+  }
+  &.center, &-center {
+    text-align: center;
+  }
+  &.right, &-right {
+    text-align: right;
+  }
+}
+
+strong,
+b,
+.bold {
+  font-weight: 600;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.sub {
+  font-size: smaller;
+  vertical-align: sub;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+.text-normal {
+  text-transform: none!important;
+}
+
+.lower {
+  text-transform: lowercase;
+}
+
+.caps {
+  text-transform: capitalize;
+}
+
+.sup {
+  font-size: smaller;
+  vertical-align: super;
+}
+
+.extralight {
+  font-weight: 200 !important;
+}
+
+.light {
+  font-weight: 300 !important;
+}
+
+.normal {
+  font-weight: 400 !important;
+}
+
+.semibold {
+  font-weight: 600 !important;
+}
+
+.bold {
+  font-weight: 700 !important;
+}
+
+.extrabold {
+  font-weight: 800 !important;
+}
+
+acronym,
+data,
+del,
+ins,
+mark,
+s,
+time,
+u {
+  // margin-right: .5ch;
+  // margin-left: .5ch;
+}
+
+// Font Sizes
+h1,
+.alpha {
+  @include font-size($alpha);
+  @include media($small) {
+    @include font-size($alpha - .2);
+  }
+}
+
+h2,
+.beta {
+  @include font-size($beta);
+}
+
+h3,
+.gamma {
+  @include font-size($gamma);
+}
+
+h4,
+.delta {
+  @include font-size($delta);
+}
+
+h5,
+.epsilon {
+  @include font-size($epsilon);
+}
+
+h6,
+.zeta {
+  @include font-size($zeta);
+}
+
+.micro {
+  @include font-size($micro);
+}
+
+.midget {
+  font-size: 10px;
+}
+
+.supermicro {
+  @include font-size($micro / 1.2);
+}
+
+.too-big {
+  @include font-size($too-big);
+  @include media($small) {
+    @include font-size($giga);
+  }
+  @include media($smaller) {
+    @include font-size($giga * .75);
+  }
+}
+
+
+.giga {
+  @include font-size($giga);
+  @include media($small) {
+    @include font-size($mega);
+  }
+  @include media($smaller) {
+    @include font-size($mega * .75);
+  }
+}
+
+.mega {
+  @include font-size($mega);
+  @include media($small) {
+    @include font-size($kilo);
+  }
+  @include media($smaller) {
+    @include font-size($kilo * .75);
+  }
+}
+
+.kilo {
+  @include font-size($kilo);
+  @include media($small) {
+    @include font-size($hecto);
+  }
+}
+
+.hecto {
+  @include font-size($hecto);
+  @include media($small) {
+    @include font-size($hecto * .75);
+  }
+  @include media($smaller) {
+    @include font-size($hecto * .50);
+  }
+}
+
+.deca {
+  @include font-size($deca);
+}
+
+.milli {
+  @include font-size($milli);
+}
+
+.base {
+  font-size: $font-size-base + rem;
+}

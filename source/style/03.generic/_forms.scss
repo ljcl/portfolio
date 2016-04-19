@@ -1,0 +1,104 @@
+$form-colour-background-disabled: shade($colour-white, 5%);
+$form-colour-border-disabled: shade($colour-white, 20%);
+$label-margin-bottom: $small-spacing / 2;
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+input,
+label,
+select {
+  display: block;
+  font-family: $font-family-body;
+  font-size: $font-size-base;
+}
+
+label {
+  margin-bottom: $label-margin-bottom;
+  &.required::after {
+    content: '*';
+  }
+  abbr {
+    display: none;
+  }
+  &.block {
+    display: block;
+  }
+}
+
+.color {
+  min-height: 1em;
+  padding: 0 .5em;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.input.search {
+  -webkit-box-sizing: border-box;
+  -webkit-appearance: textfield;
+}
+
+.button-group {
+  margin-top: em($line-height-base * $font-size-base * 10) + $label-margin-bottom;
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: $base-spacing / 3;
+  margin-bottom: $small-spacing;
+  font-family: $font-family-body;
+  font-size: $font-size-base;
+  color: $colour-form;
+  background-color: $colour-form-background;
+  border: $border-form;
+  border-radius: $form-border-radius;
+  transition: border-color $transition-duration $transition-timing;
+  &:hover {
+    //border-color: shade($colour-form-border, 20%);
+  }
+  &:focus {
+    border-color: $colour-form-border-focus;
+    outline: none;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $form-colour-background-disabled;
+    border-color: $form-colour-border-disabled;
+    &:hover {
+      border: $border-base;
+    }
+  }
+  .has-error & {
+    border-color: $colour-form-border-error;
+  }
+}
+
+select {
+  appearance: none;
+  max-width: 100%;
+  margin-bottom: $base-spacing;
+}
+
+// Apply when autosizing a texarea with javascript.
+.autosize {
+  min-height: 70px;
+}
+
+.input {
+  resize: vertical;
+}
+
+.search {
+  appearance: none;
+}
+
+.radio,
+.checkbox,
+.color {
+  display: inline;
+  margin-right: $small-spacing / 2;
+}

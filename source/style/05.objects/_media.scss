@@ -1,0 +1,131 @@
+// ----------------------------------------------------------------------------
+// Media
+// ----------------------------------------------------------------------------
+// <div class="media media--left">
+//   <a href="http://twitter.com/stubbornella" class="media--img">
+//     <img src="http://stubbornella.com/profile_image.jpg" alt="me" />
+//   </a>
+//   <div class="media--body">
+//     @Stubbornella 14 minutes ago
+//   </div>
+// </div>
+
+.media {
+  margin: 10px;
+
+  &,
+  .media--body {
+    overflow: hidden;
+    zoom: 1;
+  }
+
+  img {
+    display: block;
+  }
+}
+
+.media--img {
+  .media--right & {
+    float: right;
+    margin-left: 10px;
+  }
+
+  .media--left & {
+    float: left;
+    margin-right: 10px;
+  }
+}
+
+// ----------------------------------------------------------------------------
+// Flag Object
+// ----------------------------------------------------------------------------
+// <div class="flag flag--bottom">
+//   <div class="flag--image">
+//     <img src="" alt="">
+//   </div>
+//   <div class="flag--body">
+//     <p></p>
+//   </div>
+// </div>
+
+
+.flag {
+  display: table;
+  width: 100%;
+}
+
+.flag--image,
+.flag--body {
+  display: table-cell;
+  vertical-align: middle;
+
+  .flag--top & {
+    vertical-align: top;
+  }
+
+  .flag--bottom & {
+    vertical-align: bottom;
+  }
+}
+
+.flag--image {
+  padding-right: 10px;
+
+  > img {
+    display: block;
+    max-width: none;
+  }
+
+  .flag--rev & {
+    padding-right: 0;
+    padding-left: 10px;
+  }
+}
+
+.flag--body {
+  width: 100%;
+}
+
+
+
+// ----------------------------------------------------------------------------
+// Media Flexbox
+// ----------------------------------------------------------------------------
+// <div class="media">
+//   <img class="media-figure" src="" alt="">
+//   <p class="media-body">…</p>
+// </div>
+
+.media-flag {
+  display: flex;
+
+  align-items: flex-start;
+}
+
+.media-figure {
+  margin-right: 1em;
+  //display: inline;
+}
+
+.media-title {
+  margin: 0 0 .5em;
+}
+
+.media-body {
+  flex: 1;
+  //display: inline;
+  &,
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.media--center {
+  align-items: center;
+}
+
+.media--reverse > .media-figure {
+  margin: 0 0 0 1em;
+
+  order: 1;
+}

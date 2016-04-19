@@ -1,0 +1,79 @@
+$colour-upload: #3e50b4;
+$colour-default: $colour-black;
+$colour-default-border: $colour-black;
+$colour-button: #5c5edc;
+$colour-button-close: #50505a;
+
+.btn {
+  @include btn();
+  margin-bottom: 10px;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  .styleguide & {
+    margin-bottom: $small-spacing;
+  }
+}
+
+$button-colours: (
+  'primary': $colour-primary,
+  'secondary': $colour-secondary,
+  'tertiary': $colour-tertiary,
+  'quaternary': $colour-quaternary,
+  'success': $colour-success,
+  'info': $colour-info,
+  'warning': $colour-warning,
+  'danger': $colour-danger,
+);
+
+$colour-kiwi: #5e64b2;
+$colour-kiwi-bg: #79d799;
+$colour-peach: #d64a57;
+$colour-peach-bg: #f8906d;
+$colour-apple: #72c388;
+$colour-apple-bg: #cff07b;
+$colour-grape: #243b71;
+$colour-grape-bg: #5f64b8;
+$colour-banana: #fb9773;
+$colour-banana-bg: #f9eb7e;
+$colour-strawberry: #612f4c;
+$colour-strawberry-bg: #dd4f5b;
+
+
+.btn-default {
+  @include btn-colour($colour-black, $text-colour: $colour-white, $border-colour: $colour-black, $style: bold);
+}
+
+.btn-outline {
+  @include btn-colour($colour-black, $text-colour: $colour-black, $border-colour: $colour-black, $style: outline);
+}
+
+.btn-white {
+  @include btn-colour($colour-white, $text-colour: $colour-white, $border-colour: $colour-white, $style: outline);
+}
+
+//Generate Button Modifiers
+// @each $b in $button-fruit-colours {
+//   .btn-#{nth($b,1)} {
+//     @include btn-colour(#{nth($b,2)}, #{nth($b,3)}, #{nth($b,4)});
+//   }
+// }
+
+@each $button-colour, $colour in $button-colours {
+  .btn-#{$button-colour} {
+    @include btn-colour($colour, $text-colour: desaturate(lighten($colour, 20%), 20%), $style: bold);
+  }
+}
+
+@each $button-colour, $colour in $button-colours {
+  .btn-#{$button-colour}-outline {
+    @include btn-colour($colour, $text-colour: desaturate(lighten($colour, 20%), 20%), $style: outline);
+  }
+}
+
+.btn-huge {
+  font-size: 200%;
+  padding: 20px 40px;
+}

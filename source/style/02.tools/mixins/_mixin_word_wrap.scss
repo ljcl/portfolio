@@ -1,0 +1,4 @@
+@mixin word-wrap() {
+  hyphens: auto;
+  word-break: break-word;
+}

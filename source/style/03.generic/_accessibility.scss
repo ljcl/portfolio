@@ -1,0 +1,32 @@
+%visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
+}
+
+.fallback .icon {
+  display: none;
+
+  .inlinesvg & {
+    display: inline-block;
+  }
+}
+
+/*
+
+<div class="icon-fallback-text">
+  <span class="icon icon-thing"></span>
+  <span class="fallback-text">Appears as a fallback only.</span>
+</div>
+
+*/
+
+/*============================================================================
+  A generic way to visually hide content while
+  remaining accessible to screen readers (h5bp.com)
+==============================================================================*/
+.inlinesvg .fallback .fallback-text {
+  @extend %visually-hidden;
+}

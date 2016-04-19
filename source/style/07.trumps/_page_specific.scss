@@ -1,0 +1,43 @@
+.home-content p {
+  margin-bottom: 0.25em;
+}
+
+.home-strap .inner {
+  @include span-columns(10)
+  @include shift(2)
+  @include media($small) {
+    @include shift(0)
+  }
+
+}
+
+.home-header {
+  color: $colour-black;
+  h1 {
+    margin-bottom: 0;
+  }
+  h2 {
+    margin-top: 0;
+  }
+}
+
+
+html:not(.wf-active) {
+  @include media($smaller) {
+    .home-strap .list-rotate-group {
+      font-size: 2.7rem;
+      span {
+        padding: 0;
+      }
+      b {
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+// Contact page
+
+.input--shadow {
+  box-shadow: 25px 20px 50px lighten(#A2A2A2, 25%);
+}

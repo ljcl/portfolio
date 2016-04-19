@@ -1,0 +1,19 @@
+// You should be using an autoprefixer as part of your build process
+// https://github.com/postcss/autoprefixer
+// Requires a `position` to be given to the parent container.
+// Something looking a little blurry, add `transform-style: preserve-3d` to the parent container.
+
+@mixin align($position: relative, $align: both) {
+  position: $position;
+  @if $align == vertical {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $align == horizontal {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

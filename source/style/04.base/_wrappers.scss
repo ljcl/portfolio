@@ -1,0 +1,102 @@
+// ----------------------------------------------------------------------------
+// CONTAINER
+// ----------------------------------------------------------------------------
+
+$container-padding-full: $base-spacing;
+$container-padding-small: 20px;
+$container-padding-smaller: 10px;
+
+.container {
+  @include outer-container();
+  &.overflow {
+    overflow: visible;
+  }
+  @include media($full) {
+    padding-right: $container-padding-small;
+    padding-left: $container-padding-small;
+  }
+  @include media($smaller) {
+    padding-right: $container-padding-smaller;
+    padding-left: $container-padding-smaller;
+  }
+}
+
+.container--larger {
+  max-width: em(1280px);
+}
+
+.container--small {
+  max-width: em($small-px);
+}
+
+.container--smaller {
+  max-width: em($smaller-px);
+}
+
+// ----------------------------------------------------------------------------
+// WRAPPERS
+// ----------------------------------------------------------------------------
+
+$wrapper-colour: transparent;
+$wrapper-colour-primary: $colour-primary;
+$wrapper-colour-secondary: $colour-secondary;
+$wrapper-colour-tertiary: $colour-tertiary;
+$wrapper-colour-bottom: #000;
+$wrapper-width-bottom: 3px;
+$wrapper-gap-bottom: 30px;
+$wrapper-margin: 30px;
+$wrapper-padding: 30px;
+// $wrapper-padding-v: $small-spacing;
+// $wrapper-padding-h: $wrapper-padding-v;
+
+.wrapper {
+  background-color: $wrapper-colour;
+  padding: $wrapper-padding 0;
+  .panel-split {
+    padding-top: $wrapper-padding;
+  }
+}
+
+.wrapper--padding-none {
+  padding: 0;
+}
+
+.wrapper--padding-less {
+  padding: $wrapper-padding / 2 0;
+  .panel-split {
+    padding-top: $wrapper-padding / 2;
+  }
+}
+
+.wrapper--padding-extra {
+  padding: $wrapper-padding * 2 0;
+  .panel-split {
+    padding-top: $wrapper-padding * 2;
+  }
+}
+
+@each $wrapper-colour, $colour in $primary-colours {
+  .wrapper--#{$wrapper-colour} {
+    background-color: $colour;
+    a {
+      color: currentColor;
+    }
+    @if lightness($colour) >= 40% {
+      color: $colour-white;
+    } @elseif lightness($colour) < 80% and lightness($colour) > 25% {
+      color: $colour-text;
+    } @else {
+      color: text-contrast($colour);
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------
+// Wrapper Features
+
+.wrapper-panel {
+  line-height: 1.25;
+}
+
+// ----------------------------------------------------------------------------
+// Wrapper specifics

@@ -1,0 +1,57 @@
+$header-nav-item-padding: 23px;
+$header-margin-top: 38px;
+$header-margin-bottom: 38px;
+$header-nav-margin: 20px;
+
+$header-logo--size: 64px;
+
+.page-header {
+  .container {
+    position: relative;
+    @include clearfix();
+  }
+  @include media($smaller) {
+    padding: 20px 0;
+  }
+}
+
+
+// Header Logo
+//
+
+.header-logo {
+  margin-top: $header-margin-top - 15px;
+  margin-bottom: $header-margin-bottom - 15px;
+  margin-right: $header-margin-bottom - 15px;
+  display: inline-block;
+}
+
+.header-logo,
+.header-logo--mask,
+.header-logo--effect {
+  width: $header-logo--size;
+  height: $header-logo--size;
+}
+.header-logo {
+  position: relative;
+}
+
+.header-logo--mask {
+  position: absolute;
+  display: block;
+  z-index: 2;
+  background-position: 50% 50%;
+  background-image: url(../img/logo-clip.svg);
+  overflow: hidden;
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+.header-logo--effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: $colour-background;
+}
+

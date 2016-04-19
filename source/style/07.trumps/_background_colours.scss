@@ -1,0 +1,6 @@
+// Background colours
+@each $primary-colour, $colour in $primary-colours {
+  .bg-#{$primary-colour} {
+    background-color: $colour
+  }
+}

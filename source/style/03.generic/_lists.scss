@@ -1,0 +1,37 @@
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  //list-style-type: none;
+  // &%default-ul {
+  //   padding-left: $base-spacing;
+  //   margin-bottom: $small-spacing;
+  //   list-style-type: disc;
+  // }
+  // &%default-ol {
+  //   padding-left: $base-spacing;
+  //   margin-bottom: $small-spacing;
+  //   list-style-type: decimal;
+  // }
+}
+
+ol {
+  padding-left: $base-spacing;
+  margin-bottom: $small-spacing;
+  list-style-type: decimal;
+}
+
+.alpha-list ol {
+  list-style-type: lower-alpha;
+}
+
+dl {
+  margin-bottom: $small-spacing;
+  dt {
+    margin-top: $small-spacing;
+    font-weight: bold;
+  }
+  dd {
+    margin: 0;
+  }
+}

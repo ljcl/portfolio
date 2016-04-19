@@ -1,0 +1,36 @@
+// The homepage title rotator
+//
+
+.list-rotate-group {
+  span {
+    display: inline-block;
+    padding: .2em 0;
+  }
+}
+
+.list-rotate {
+  perspective: 300px;
+  overflow: hidden;
+  vertical-align: top;
+  position: relative;
+  text-align: left;
+}
+
+.list-rotate-item {
+  top: .2em;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  position: absolute;
+  display: inline-block;
+  white-space: nowrap;
+  &.is-visible {
+    position: relative;
+    top: 0;
+    opacity: 1;
+    animation: slide-in .6s;
+  }
+  &.is-hidden {
+    animation: slide-out .6s;
+  }
+}

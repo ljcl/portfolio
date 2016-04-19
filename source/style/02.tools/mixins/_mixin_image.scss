@@ -1,0 +1,6 @@
+@mixin image($path, $position: 50% 50%) {
+  background-image: url('#{$path}.png');
+  background-image: url('#{$path}.svg');
+  background-repeat: no-repeat;
+  background-position: $position;
+}

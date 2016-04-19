@@ -1,0 +1,6 @@
+// ----------------------------------------------------------------------------
+// Transition Timing
+
+$transition-duration: .2s;
+$transition-timing: cubic-bezier(.645, .045, .355, 1)!default;
+$transition-timing-reverse: cubic-bezier(.355, .955, .645, 0)!default;

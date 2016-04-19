@@ -1,0 +1,60 @@
+@mixin hamburger(
+  $hamburger-background: #3d566e,
+  $hamburger-color: #ecf0f1,
+  $hamburger-height-icon: 50px,
+  $hamburger-width-line: 100px,
+  $hamburger-height-line: 8px,
+  $hamburger-transition-time: .4s,
+  $hamburger-rotation: 45deg,
+  $hamburger-translate-y: ($hamburger-height-icon / 2),
+  $hamburger-translate-x: 0,
+  $hamburger-no-border: false) {
+  position: relative;
+  display: block;
+  width: $hamburger-width-line;
+  height: $hamburger-height-icon;
+  margin: 0 auto $hamburger-height-icon;
+  .line {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: $hamburger-width-line;
+    height: $hamburger-height-line;
+    background: $hamburger-color;
+    transition: all $hamburger-transition-time;
+    @if $hamburger-no-border == true {
+      border-radius: false;
+    } @else {
+      border-radius: ($hamburger-height-line / 2);
+    }
+    &.line-1 {
+      top: 0;
+    }
+    &.line-2 {
+      top: 50%;
+    }
+    &.line-3 {
+      top: 100%;
+    }
+  }
+  &:hover,
+  &:focus {
+    .line-1 {
+      transform: translateY($hamburger-height-line / 2 * -1);
+    }
+    .line-3 {
+      transform: translateY($hamburger-height-line / 2);
+    }
+  }
+  &.active {
+    .line-1 {
+      transform: translateY($hamburger-translate-y) translateX($hamburger-translate-x) rotate($hamburger-rotation);
+    }
+    .line-2 {
+      opacity: 0;
+    }
+    .line-3 {
+      transform: translateY($hamburger-translate-y * -1) translateX($hamburger-translate-x) rotate($hamburger-rotation * -1);
+    }
+  }
+}

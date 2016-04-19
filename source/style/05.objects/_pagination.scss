@@ -1,0 +1,191 @@
+$colour-pagination-primary: $colour-secondary;
+$colour-pagination-secondary: $colour-primary;
+$colour-pagination-tertiary: $colour-white;
+$pagination-outer: 'pagination-container';
+$pagination-container: 'pagination';
+$pagination-spacing: $small-spacing;
+$pagination-border-radius: $border-radius-base;
+$colour-pagination-button-background: $colour-background-two;
+
+.#{$pagination-outer} {
+  text-align: center;
+}
+
+.#{$pagination-container} {
+  width: 90%;
+  max-width: $small-px;
+  padding: 0;
+  margin: $pagination-spacing auto;
+  text-align: center;
+  li {
+    display: inline-block;
+    /* hide numbers on small devices */
+    margin: 0 .2em;
+    &.button {
+      /* make sure prev next buttons are visible */
+      display: inline-block;
+    }
+    @include media($smaller) {
+      display: none;
+    }
+  }
+  a,
+  span {
+    display: inline-block;
+    /* use padding and font-size to change buttons size */
+    padding: .6em .8em;
+    font-size: 1.6rem;
+    text-decoration: none;
+    user-select: none;
+  }
+  a {
+    border: 1px solid darken($colour-pagination-tertiary, 10%);
+    border-radius: $pagination-border-radius;
+    color: currentColor;
+    .no-touch &:hover {
+      background-color: darken($colour-pagination-tertiary, 5%);
+    }
+    &:active {
+      /* click effect */
+      transform: scale(.9);
+    }
+    &.disabled {
+      color: $colour-grey;
+      /* button disabled */
+      pointer-events: none;
+    }
+  }
+  .button:first-of-type a::before {
+    content: '\00ab  ';
+  }
+  .button:last-of-type a::after {
+    content: ' \00bb';
+  }
+  .current {
+    color: $colour-pagination-tertiary;
+    pointer-events: none;
+    /* selected number */
+    background-color: $colour-pagination-secondary;
+    border-color: $colour-pagination-secondary;
+  }
+}
+
+/* --------------------------------
+No space - remove distance between list items
+-------------------------------- */
+
+.#{$pagination-container}--no-space {
+  display: inline-block;
+  width: auto;
+  max-width: none;
+  border: 1px solid darken($colour-pagination-tertiary, 10%);
+  border-radius: $pagination-border-radius;
+  background: $colour-pagination-button-background;
+  @include clearfix;
+  li {
+    float: left;
+    margin: 0;
+    border-right: 1px solid darken($colour-pagination-tertiary, 10%);
+    &:last-of-type {
+      border-right: 0;
+    }
+  }
+  a,
+  span {
+    float: left;
+    padding: .8em 1em;
+    border: 0;
+    border-radius: 0;
+  }
+  li:first-of-type a {
+    border-radius: $pagination-border-radius 0 0 $pagination-border-radius;
+  }
+  li:last-of-type a {
+    border-radius: 0 $pagination-border-radius $pagination-border-radius 0;
+  }
+  .current {
+    background: mix($colour-primary, $colour-pagination-button-background, 10%);
+    color: mix($colour-primary, $colour-pagination-button-background, 90%);
+  }
+}
+
+/* --------------------------------
+
+move buttons - move prev and next buttons to the sides
+
+-------------------------------- */
+
+.#{$pagination-container}--move-buttons {
+  @include clearfix;
+  .button:first-of-type {
+    float: left;
+  }
+  .button:last-of-type {
+    float: right;
+  }
+}
+
+.#{$pagination-container}--move-buttons.#{$pagination-container}--no-space {
+  display: block;
+  width: 90%;
+  max-width: $small-px;
+  overflow: hidden;
+  li {
+    float: none;
+    border: 0;
+  }
+  a,
+  span {
+    float: none;
+  }
+}
+
+
+/* --------------------------------
+
+animated buttons - animate the text inside prev and next buttons
+
+-------------------------------- */
+
+.#{$pagination-container}--animated-buttons {
+  a,
+  span {
+    height: 50px;
+    padding: 0 1.4em;
+    overflow: hidden;
+    line-height: 50px;
+  }
+  .button a {
+    position: relative;
+    padding: 0 2em;
+  }
+  .button:first-of-type a::before,
+  .button:last-of-type a::after {
+    right: auto;
+    left: 50%;
+    transition: transform .3s;
+    transform: translateX(-50%);
+  }
+  .button:last-of-type a::after {
+    transform: translateX(-50%) rotate(180deg);
+  }
+  i {
+    display: block;
+    height: 100%;
+    transition: transform .3s;
+    transform: translateY(100%);
+  }
+}
+
+
+.no-touch .#{$pagination-container}--animated-buttons .button a:hover i {
+  transform: translateY(0);
+}
+
+.no-touch .#{$pagination-container}--animated-buttons .button:first-of-type a:hover::before {
+  transform: translateX(-50%) translateY(-50px);
+}
+
+.no-touch .#{$pagination-container}--animated-buttons .button:last-of-type a:hover::after {
+  transform: translateX(-50%) rotate(180deg) translateY(50px);
+}

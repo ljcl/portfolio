@@ -1,0 +1,22 @@
+// Simple link colouring
+@mixin links($link: $color-link,  $hover: $color-primary, $active: 'lighten($hover, 10%)', $focus: $hover, $visited: $link) {
+  color: $link;
+  @if $visited {
+    &:visited {
+      color: $visited;
+    }
+  } @else {
+    &:visited {
+      color: $link;
+    }
+  }
+  &:hover {
+    color: $hover;
+  }
+  &:active {
+    color: $active;
+  }
+  &:focus {
+    color: $focus;
+  }
+}

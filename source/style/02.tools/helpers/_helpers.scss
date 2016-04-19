@@ -1,0 +1,22 @@
+/* Helper classes */
+.cf:before,
+.cf:after {
+	content: ' ';
+	display: table;
+}
+
+.cf:after {
+	clear: both;
+}
+
+.hidden {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.centre-block,
+.center-block {
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,20 @@
+.module-action-top {
+  color: $colour-white;
+  text-decoration: none;
+  background: $colour-c2a-primary;
+  display: block;
+  border-bottom: 1px solid darken($colour-c2a-primary, 5%);
+  transition:
+    border-color $transition-duration $transition-timing,
+    background-color $transition-duration $transition-timing;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $colour-white;
+    background-color: $colour-c2a-hover;
+    border-color: darken($colour-c2a-hover, 5%);
+  }
+  .container {
+    padding: $panel-padding-v;
+  }
+}
